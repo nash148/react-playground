@@ -73,8 +73,9 @@ export function DataTable<TData, TValue>({
           <ul className="list-disc [&>li]:mt-1 pl-6">
             <li>Uses TanstackTable for the core table functionality.</li>
             <li>
-              Every action (filter, search, sort, pagination e.g.) could trigger
-              a query to the database to fetch the relevant data.
+              Every action (filtering, searching, sorting, pagination, etc.) can
+              be performed on either the client side or the server side, by
+              sending query to the sever.
             </li>
             <li>
               The styling is based on Tailwindcss - everything is customizable.
@@ -85,17 +86,20 @@ export function DataTable<TData, TValue>({
       </div>
       <div className="flex items-center justify-start space-x-2">
         <blockquote className=" mb-3 border-l-2 pl-2 italic">
-          Abilities:
+          Built-in Features:
           <ul className="list-disc [&>li]:mt-1 pl-6">
             <li>Search bar across the table (with debouncing).</li>
             <li>Toggle column visibility.</li>
             <li>Sort by column.</li>
-            <li>Column filter and global filter</li>
-            <li>Filter on extra data that not not in the table.</li>
+            <li>Column filters and global filters.</li>
             <li>Pagination.</li>
+            <li>Custom cell/header rendering.</li>
+            <li>Inline actions.</li>
             <li>Row selection + actions on selected rows.</li>
-            <li>Editing (as inline edit or as popup).</li>
+            <li>Editing (as inline edit or as form).</li>
           </ul>
+          Other then these, we can easily implement more and more features as
+          per the requirement.
         </blockquote>
       </div>
       <div className="flex items-center py-4">
