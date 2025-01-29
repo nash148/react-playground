@@ -7,8 +7,6 @@ import { AppHeader } from '@/components/app-header';
 export function AppLayout() {
   const [sidebarState] = useCookies(['sidebar:state']);
 
-  let defaultOpen = true;
-
   // if (sidebarState['sidebar:state']) {
   //   defaultOpen = Boolean(sidebarState['sidebar:state']);
   // }

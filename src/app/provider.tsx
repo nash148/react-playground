@@ -1,5 +1,3 @@
-import { useCookies } from 'react-cookie';
-import { SidebarProvider } from '@/components/ui/sidebar';
 import { ThemeProvider } from '@/app/providers/theme-provider';
 
 type ProviderProps = {
