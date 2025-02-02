@@ -1,4 +1,5 @@
 import { Payment } from '@/types/types';
+import { data } from '@/components/shadcn-table/data';
 
 export const fetchData = async (
   page?: number,
@@ -33,8 +34,8 @@ export const fetchData = async (
   } catch (err) {
     console.error((err as Error).message);
     return {
-      count: 0,
-      data: [],
+      count: data.length,
+      data: data,
     };
   }
 };
