@@ -1,4 +1,4 @@
-import { Payment } from '../../types/types';
+import { Payment } from '@/types/types';
 
 export const data: Payment[] = [
   {

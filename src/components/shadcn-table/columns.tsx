@@ -1,7 +1,7 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
-import { Payment } from './types';
+import { Payment } from '../../types/types';
 import { MoreHorizontal, ArrowUpDown } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';

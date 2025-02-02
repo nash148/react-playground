@@ -1,8 +1,9 @@
 import React from 'react';
 import { RouteObject } from 'react-router';
-import { ReportPage } from '@/pages/report-page';
+import { ShadcnPage } from '@/pages/shadcn-page';
 import { WorkflowPage } from '@/pages/workflow-page';
 import { DashboardPage } from '@/pages/dashboard-page';
+import { PrimeReactPage } from '@/pages/prime-react-page';
 
 export const routes: RouteObject[] = [
   {
@@ -11,11 +12,15 @@ export const routes: RouteObject[] = [
   },
   {
     path: '/reports/basic-shadcn',
-    element: React.createElement(ReportPage),
+    element: React.createElement(ShadcnPage),
+  },
+  {
+    path: '/reports/prime-react',
+    element: React.createElement(PrimeReactPage),
   },
   {
     path: '/reports',
-    element: React.createElement(ReportPage),
+    element: React.createElement(ShadcnPage),
   },
   {
     path: '/workflow',

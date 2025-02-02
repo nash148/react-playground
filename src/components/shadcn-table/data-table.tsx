@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   ColumnDef,
   flexRender,
+  type Table as TanstackTable,
   getCoreRowModel,
   getPaginationRowModel,
   useReactTable,
@@ -28,80 +29,19 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { DataTablePagination } from '@/components/shadcn-table/data-table-pagination';
 
 interface DataTableProps<TData, TValue> {
+  table: TanstackTable<TData>;
   columns: ColumnDef<TData, TValue>[];
-  data: TData[];
 }
 
 export function DataTable<TData, TValue>({
+  table,
   columns,
-  data,
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    [],
-  );
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = React.useState({});
-
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    onSortingChange: setSorting,
-    getSortedRowModel: getSortedRowModel(),
-    onColumnFiltersChange: setColumnFilters,
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
-    state: {
-      sorting,
-      columnFilters,
-      columnVisibility,
-      rowSelection,
-    },
-  });
-
   return (
     <div>
-      <div className="flex items-center justify-start space-x-2">
-        <blockquote className=" mb-3 border-l-2 pl-2 italic">
-          General points:
-          <ul className="list-disc [&>li]:mt-1 pl-6">
-            <li>Uses TanstackTable for the core table functionality.</li>
-            <li>
-              Every action (filtering, searching, sorting, pagination, etc.) can
-              be performed on either the client side or the server side, by
-              sending query to the sever.
-            </li>
-            <li>
-              The styling is based on Tailwindcss - everything is customizable.
-            </li>
-            <li>The code (above TanstackTable) is managed in our code base.</li>
-          </ul>
-        </blockquote>
-      </div>
-      <div className="flex items-center justify-start space-x-2">
-        <blockquote className=" mb-3 border-l-2 pl-2 italic">
-          Built-in Features:
-          <ul className="list-disc [&>li]:mt-1 pl-6">
-            <li>Search bar across the table (with debouncing).</li>
-            <li>Toggle column visibility.</li>
-            <li>Sort by column.</li>
-            <li>Column filters and global filters.</li>
-            <li>Pagination.</li>
-            <li>Custom cell/header rendering.</li>
-            <li>Inline actions.</li>
-            <li>Row selection + actions on selected rows.</li>
-            <li>Editing (as inline edit or as form).</li>
-          </ul>
-          Other then these, we can easily implement more and more features as
-          per the requirement.
-        </blockquote>
-      </div>
       <div className="flex items-center py-4">
         {/* Search bar */}
         <Input
@@ -195,22 +135,10 @@ export function DataTable<TData, TValue>({
           {table.getFilteredSelectedRowModel().rows.length} of{' '}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
+        <div className="flex flex-col gap-2.5">
+          <DataTablePagination table={table} />
+          {table.getFilteredSelectedRowModel().rows.length > 0 && true}
+        </div>
       </div>
     </div>
   );

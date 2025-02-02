@@ -92,7 +92,6 @@ const items: ISidebarItem[] = [
     title: 'Dashbord',
     url: '#',
     icon: ChartArea,
-    isActive: true,
     children: [
       {
         title: 'Analytics',
@@ -112,22 +111,15 @@ const items: ISidebarItem[] = [
     title: 'Reports',
     url: '#',
     icon: Table,
+    isActive: true,
     children: [
       {
-        title: 'Report Shadcn basic',
+        title: 'ShadCN Data Table',
         url: '/reports/basic-shadcn',
       },
       {
-        title: 'High Risk Yuval',
-        url: '/report',
-      },
-      {
-        title: 'High Risk Natan',
-        url: '/report',
-      },
-      {
-        title: 'High Risk Haviv',
-        url: '/report',
+        title: 'PrimeReact Data Table',
+        url: '/reports/prime-react',
       },
     ],
   },
