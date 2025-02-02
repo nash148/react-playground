@@ -1,16 +1,7 @@
-import * as React from 'react';
 import {
   ColumnDef,
   flexRender,
   type Table as TanstackTable,
-  getCoreRowModel,
-  getPaginationRowModel,
-  useReactTable,
-  SortingState,
-  getSortedRowModel,
-  ColumnFiltersState,
-  getFilteredRowModel,
-  VisibilityState,
 } from '@tanstack/react-table';
 
 import {

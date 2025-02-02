@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@/app/providers/theme-provider';
 
-import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
+import { PrimeReactProvider } from 'primereact/api';
 
 type ProviderProps = {
   children: React.ReactNode;
